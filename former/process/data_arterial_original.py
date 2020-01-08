@@ -1,0 +1,13 @@
+import pandas as pd
+
+f=pd.read_csv(r'C:\Users\Richee\PycharmProjects\learning\mission\20190717\dataWithLabel.csv')
+# f_new = pd.read_csv(r'D:\SHZL_data\data_venous.csv')
+
+
+col_save=['CaseName','label']
+for index in f:
+    if ('arterial' in index) and ('original' in index):
+        col_save.append(index)
+
+print(col_save)
+f.to_csv(r'C:\Users\Richee\PycharmProjects\learning\mission\20190717\data_arterial_original.csv', columns=col_save,index=False)

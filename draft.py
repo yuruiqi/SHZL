@@ -2,10 +2,11 @@ import pandas as pd
 import numpy as np
 import os
 from MeDIT.UsualUse import Imshow3DArray
-from MeDIT.SaveAndLoad import SaveArrayAsTIFF
-from MeDIT.Visualization import MergeImageWithROI
+# from MeDIT.SaveAndLoad import SaveArrayAsTIFF
+# from MeDIT.Visualization import MergeImageWithROI
 import SimpleITK as sitk
 import matplotlib.pyplot as plt
+from scipy import stats
 
 
 def normalize(data):
@@ -38,6 +39,8 @@ def save_pic(phase_name,clip):
     SaveArrayAsTIFF(data, save_path,dpi=(1000,1000))
 
 
-save_pic('non_contrast',[0.34,0.41])
-save_pic('arterial',[0.33,0.45])
-save_pic('venous',[0.33,0.45])
+# save_pic('non_contrast',[0.34,0.41])
+# save_pic('arterial',[0.33,0.45])
+# save_pic('venous',[0.33,0.45])
+
+stats.wilcoxon([1,2,3],[1,2])

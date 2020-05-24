@@ -28,6 +28,27 @@ def feature_statistics(data_path):
 
 
 def show_feature_weight(model_path,save_path):
+    feature_name_list = {'non_contrast.nii_original_shape_Sphericity': 'Original Shape\nSphericity',
+                         'non_contrast.nii_original_shape_Maximum2DDiameterSlice': 'Original Shape\nMaximum2DDiameterSlice',
+                         'non_contrast.nii_original_shape_MajorAxisLength': 'Original Shape\nMajorAxisLength',
+                         'non_contrast.nii_original_firstorder_90Percentile': 'Original Firstorder\n90Percentile',
+                         'non_contrast.nii_original_shape_SurfaceVolumeRatio': 'Original Shape\nSurfaceVolumeRatio',
+                         'non_contrast.nii_original_shape_LeastAxisLength': 'Original Shape\nLeastAxisLength',
+                         'non_contrast.nii_original_shape_Maximum2DDiameterColumn': 'Original Shape\nMaximum2DDiameterColumn',
+                         'non_contrast.nii_original_shape_Maximum3DDiameter': 'Original Shape\nMaximum3DDiameter',
+                         'non_contrast.nii_original_shape_SurfaceArea': 'Original Shape\nSurfaceArea',
+                         'non_contrast.nii_original_shape_MinorAxisLength': 'Original Shape\nMinorAxisLength',
+                         'non_contrast.nii_original_shape_Maximum2DDiameterRow': 'Original Shape\nMaximum2DDiameterRow',
+                         'non_contrast.nii_original_firstorder_Energy': 'Original Firstorder\nEnergy',
+                         'arterial.nii_original_shape_Maximum3DDiameter': 'Original Shape\nMaximum3DDiameter',
+                         'arterial.nii_original_shape_Sphericity': 'Original Shape\nSphericity',
+                         'arterial.nii_original_shape_Maximum2DDiameterSlice': 'Original Shape\nMaximum2DDiameterSlice',
+                         'arterial.nii_wavelet-LHH_gldm_DependenceEntropy': 'Wavelet-LHH GLDM\nDependenceEntropy',
+                         'arterial.nii_wavelet-LHH_gldm_DependenceNonUniformityNormalized': 'Wavelet-LHH GLDM\nDependenceNonUniformityNormalized',
+                         'arterial.nii_wavelet-LLH_glszm_GrayLevelNonUniformity': 'Wavelet-LLH GLSZM\nGrayLevelNonUniformity',
+                         'venous.nii_original_shape_Maximum2DDiameterSlice': 'Original Shape\nMaximum2DDiameterSlice'
+                         }
+
     weight_path = os.path.join(model_path,r'LR_coef.csv')
     weight_data = pd.read_csv(weight_path)
     weight_data.sort_values(by='Coef',inplace=True)
@@ -35,7 +56,8 @@ def show_feature_weight(model_path,save_path):
 
     broken_point = features[0].index('nii')
     for i in range(len(features)):
-        features[i] = features[i][broken_point+4:]
+        # features[i] = features[i][broken_point+4:]
+        features[i] = feature_name_list[features[i]].replace('\n',' ')
 
     weights = weight_data['Coef'].values
 

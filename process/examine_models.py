@@ -236,15 +236,16 @@ def examine_model(prob_path, pred_path, data_path):
               format(model_name,auc,acc,sen,spe))
 
 
-united_model_path = r'F:\SHZL\model\3d\ISUP\united_model_7\lr'
-test_data_path = r'F:\SHZL\model\3d\ISUP\test_data.csv'
-train_data_path = r'F:\SHZL\model\3d\ISUP\train_data.csv'
-# wilcoxon_test(united_model_path, test_data_path)
-# compute_ic(united_model_path,test_data_path,['non_contrast','venous'])
-# compute_period_ic(united_model_path,test_data_path,'venous')
-# t_test(united_model_path,'non_contrast','arterial',test_data_path)
-# t_test_all(united_model_path,test_data_path)
-# print_result_to_csv(united_model_path,test_data_path,r'F:\SHZL\model\3d\ISUP\united_model_7\lr','test')
-# print_result_to_csv(united_model_path,train_data_path,r'F:\SHZL\model\3d\ISUP\united_model_7\lr','train')
-examine_model(r'F:\SHZL\model\3d\ISUP\united_model_7\lr\train_prob.csv',
-              r'F:\SHZL\model\3d\ISUP\united_model_7\lr\train_pred.csv', train_data_path)
+if __name__ == '__main__':
+    united_model_path = r'F:\SHZL\model\3d\ISUP\united_model_7\lr'
+    test_data_path = r'F:\SHZL\model\3d\ISUP\test_data.csv'
+    train_data_path = r'F:\SHZL\model\3d\ISUP\train_data.csv'
+    # wilcoxon_test(united_model_path, test_data_path)
+    # compute_ic(united_model_path,test_data_path,['non_contrast','venous'])
+    # compute_period_ic(united_model_path,test_data_path,'venous')
+    # t_test(united_model_path,'non_contrast','arterial',test_data_path)
+    # t_test_all(united_model_path,test_data_path)
+    # print_result_to_csv(united_model_path,test_data_path,r'F:\SHZL\model\3d\ISUP\united_model_7\lr','test')
+    # print_result_to_csv(united_model_path,train_data_path,r'F:\SHZL\model\3d\ISUP\united_model_7\lr','train')
+    examine_model(r'F:\SHZL\model\3d\ISUP\united_model_7\lr\train_prob.csv',
+                  r'F:\SHZL\model\3d\ISUP\united_model_7\lr\train_pred.csv', train_data_path)

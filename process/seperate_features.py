@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
+
 def seperate_1period_features(feature_path,save_dir_path, train_or_test):
     feature_data = pd.read_csv(feature_path)
 
@@ -104,13 +105,15 @@ def seperate_train_test(data_path,save_dir_path,example_path):
     test_data.to_csv(test_data_path, index=None)
 
 
-# standard_dir = r'F:\SHZL\model\3d\ISUP'
-# seperate_traintest_period_data(standard_dir)
+if __name__ == '__main__':
+    # standard_dir = r'F:\SHZL\model\3d\ISUP'
+    # seperate_traintest_period_data(standard_dir)
 
-# standard_path = r'F:\SHZL\model\3d\ISUP'
-# train_data_name = 'smote_train.csv'
-# test_data_name = 'test.csv'
-# seperate_3period_features(standard_path, train_data_name, test_data_name)
+    # standard_path = r'F:\SHZL\model\3d\ISUP'
+    # train_data_name = 'smote_train.csv'
+    # test_data_name = 'test.csv'
+    # seperate_3period_features(standard_path, train_data_name, test_data_name)
 
-seperate_train_test(r'F:\SHZL\model\3d\ISUP\ISUP_feature.csv', r'F:\SHZL\model\3d\ISUP',
-                    r'F:\SHZL\model\3d\ISUP\arterial\2kind_feature\train_numeric_feature.csv')
+    seperate_train_test(r'F:\SHZL\model\3d\ISUP\ISUP_feature.csv', r'F:\SHZL\model\3d\ISUP',
+                        r'F:\SHZL\model\3d\ISUP\arterial\2kind_feature\train_numeric_feature.csv')
+
